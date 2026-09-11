@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Leather Apron Club — a council of trades · est. 1727, rebooted for the grove</title>
+<meta name="description" content="A mutual-improvement council for the trades of Northwest Arkansas, in the spirit of Benjamin Franklin's Junto. First council: Friday the eighteenth of September, 2026. Petitions for admission are open." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #EAE4D3;         /* candle-lit parchment text on spruce dark */
+    --ink-dim: #B7B2A0;
+    --ink-faint: #8E8B7C;
+    --bg: #0E130F;          /* the grove's charcoal-green */
+    --bg-2: #121813;
+    --card: #161D18;
+    --spruce: #1D3A2A;
+    --moss: #588F5E;
+    --sage: #98B79E;
+    --cedar: #D2A069;       /* tallow-glow amber, the club wax seal */
+    --line: rgba(234, 228, 211, .18);
+    --line-soft: rgba(234, 228, 211, .10);
+    --paper: #EFE7D2;       /* the petition sheet */
+    --paper-ink: #2B2317;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background:
+      radial-gradient(ellipse 1000px 500px at 50% -8%, rgba(88, 143, 94, .18), transparent 60%),
+      var(--bg);
+    color: var(--ink); font-family: "EB Garamond", Georgia, serif;
+    font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--cedar); color: var(--bg); }
+  a { color: var(--sage); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 26px; }
+  .sc { font-family: "IM Fell English SC", serif; }
+  .fell { font-family: "IM Fell English", serif; }
+
+  /* ------- masthead, broadsheet rules ------- */
+  header { padding: 72px 0 40px; text-align: center; }
+  .rule-double { border-top: 3px double var(--line); margin: 0 auto; width: 100%; }
+  .seal {
+    font-family: "IM Fell English SC", serif; color: var(--cedar);
+    font-size: 13px; letter-spacing: .32em; text-transform: uppercase;
+    margin: 26px 0 10px;
+  }
+  h1 {
+    font-family: "IM Fell English SC", serif; font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 1.02;
+    margin: 6px 0 10px; color: var(--ink); letter-spacing: .015em;
+  }
+  .motto { font-style: italic; color: var(--ink-dim); margin: 4px 0 18px; }
+  .est { font-family: "IM Fell English", serif; font-size: 13.5px; color: var(--ink-faint); letter-spacing: .06em; }
+  .est b { color: var(--sage); font-weight: 400; }
+  .fleuron { color: var(--cedar); margin: 22px 0 0; font-size: 20px; letter-spacing: .6em; }
+
+  section { padding: 44px 0; }
+  h2 {
+    font-family: "IM Fell English SC", serif; font-weight: 400;
+    font-size: clamp(1.5rem, 4vw, 2.1rem); text-align: center; margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .h-sub { text-align: center; color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 0 0 30px; }
+  .rule { border: 0; border-top: 1px solid var(--line-soft); margin: 30px auto; width: 62%; }
+
+  .notice {
+    border: 1px solid var(--line); outline: 1px solid var(--line-soft); outline-offset: 5px;
+    background: var(--bg-2); padding: 34px 30px; text-align: center; margin: 0 0 8px;
+  }
+  .notice .n-kicker {
+    font-family: "IM Fell English SC", serif; color: var(--cedar);
+    letter-spacing: .28em; font-size: 12.5px; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .notice .date {
+    font-family: "IM Fell English SC", serif; font-size: clamp(1.6rem, 4.6vw, 2.4rem);
+    color: var(--ink); line-height: 1.25; margin: 0 0 10px;
+  }
+  .notice .where { color: var(--ink-dim); margin: 0 0 6px; }
+  .notice .days {
+    display: inline-block; margin-top: 16px; padding: 5px 18px;
+    border: 1px solid var(--moss); color: var(--sage);
+    font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .08em;
+  }
+
+  /* ------- credo ------- */
+  .credo { list-style: none; margin: 0; padding: 0; counter-reset: c; }
+  .credo li {
+    counter-increment: c; position: relative; padding: 14px 0 14px 58px;
+    border-bottom: 1px solid var(--line-soft);
+    font-family: "IM Fell English", serif; font-size: 19px; color: var(--ink);
+  }
+  .credo li:last-child { border-bottom: 0; }
+  .credo li::before {
+    content: counter(c, upper-roman); position: absolute; left: 6px; top: 16px;
+    font-family: "IM Fell English", serif; font-size: 14px; color: var(--cedar);
+    letter-spacing: .1em;
+  }
+
+  /* ------- questions / seats ------- */
+  .questions { margin: 0; padding: 0; list-style: none; }
+  .questions li {
+    padding: 13px 0; border-bottom: 1px solid var(--line-soft);
+    font-style: italic; color: var(--ink-dim);
+  }
+  .questions li:last-child { border-bottom: 0; }
+  .questions li b { color: var(--ink); font-style: normal; font-weight: 500; }
+  .seat-line { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px dotted var(--line); }
+  .seat-line:last-child { border-bottom: 0; }
+  .seat-line .trade { font-family: "IM Fell English SC", serif; font-size: 19px; color: var(--ink); }
+  .seat-line .seat { margin-left: auto; font-size: 13.5px; color: var(--sage); font-style: italic; }
+  .seat-line .seat.open { color: var(--ink-faint); }
+
+  /* ------- petition (the parchment sheet) ------- */
+  .sheet {
+    background: var(--paper); color: var(--paper-ink);
+    border-radius: 3px; padding: 40px 38px 34px;
+    box-shadow: 0 30px 70px -24px rgba(0, 0, 0, .75), 0 2px 0 rgba(0, 0, 0, .35);
+    transform: rotate(-.4deg);
+  }
+  .sheet h3 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 1.6rem; margin: 0 0 4px; text-align: center; }
+  .sheet .to { text-align: center; font-size: 14px; color: #6b5c40; font-style: italic; margin: 0 0 26px; }
+  .sheet label { display: block; font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .04em; margin: 18px 0 6px; color: #6b5c40; }
+  .sheet label .req { color: #9c3d2e; }
+  .sheet input, .sheet textarea {
+    width: 100%; background: transparent; border: 0; border-bottom: 1px solid #B9AB8A;
+    font-family: "EB Garamond", serif; font-size: 18px; color: var(--paper-ink);
+    padding: 6px 2px; outline: none; resize: vertical;
+  }
+  .sheet input:focus, .sheet textarea:focus { border-bottom-color: #9c3d2e; }
+  .sheet .actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+  .sheet button {
+    font-family: "IM Fell English SC", serif; font-size: 16px; letter-spacing: .06em;
+    background: var(--spruce); color: var(--paper); border: 0; border-radius: 3px;
+    padding: 13px 26px; cursor: pointer;
+  }
+  .sheet button.ghost { background: transparent; color: #6b5c40; border: 1px solid #B9AB8A; }
+  .sheet button:hover { filter: brightness(1.08); }
+  .sheet .fine { font-size: 13px; color: #6b5c40; margin: 18px 0 0; font-style: italic; }
+
+  footer { padding: 56px 0 70px; text-align: center; color: var(--ink-faint); font-size: 14.5px; }
+  footer .parlor { font-family: "IM Fell English", serif; letter-spacing: .12em; margin-top: 8px; }
+  footer .parlor b { color: var(--sage); font-weight: 400; }
+  footer a { color: var(--ink-faint); }
+  footer a:hover { color: var(--sage); }
+
+  @media (max-width: 640px) {
+    .notice, .sheet { padding-left: 22px; padding-right: 22px; }
+    .sheet { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="rule-double"></div>
+    <div class="seal">A council of trades · Northwest Arkansas</div>
+    <h1>The Leather Apron Club</h1>
+    <p class="motto">&ldquo;Together we are better, always.&rdquo;</p>
+    <p class="est">in the spirit of Dr. Franklin&rsquo;s Junto, Philadelphia, <b>MDCCXXVII</b> &mdash; rebooted for the grove</p>
+    <div class="fleuron">&#10087;</div>
+    <div class="rule-double" style="margin-top:22px"></div>
+  </header>
+
+  <!-- first council -->
+  <section>
+    <div class="notice">
+      <div class="n-kicker">Notice is hereby given</div>
+      <p class="date">The First Council convenes<br />Friday next, the Eighteenth of September, 2026</p>
+      <p class="where">at six of the clock in the evening &middot; Northwest Arkansas &middot; the table to be named upon petition</p>
+      <span class="days" id="countdown">the council convenes soon</span>
+    </div>
+  </section>
+
+  <!-- credo -->
+  <section>
+    <h2>The Credo of the Club</h2>
+    <p class="h-sub">as it is engraved in the grove, and spoken at every sitting</p>
+    <ol class="credo">
+      <li>Ask better questions than the ones you are given.</li>
+      <li>Improve each other honestly; accountability, never blame.</li>
+      <li>Build for the town first. The barbershop, the artisan, the drone pilot.</li>
+      <li>Leave it better than we found it.</li>
+    </ol>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- standing questions -->
+  <section>
+    <h2>The Standing Questions</h2>
+    <p class="h-sub">after Dr. Franklin&rsquo;s own, put to every member at every meeting</p>
+    <ul class="questions">
+      <li><b>I.</b> What new thing have you made, mended, or learned in your trade since we last sat &mdash; and what did it teach?</li>
+      <li><b>II.</b> Hath any citizen, or any shop among us, lately met with difficulty in their undertakings &mdash; and how might the council assist?</li>
+      <li><b>III.</b> What defect have you observed in the tools of our town &mdash; and who among us is best placed to mend it?</li>
+      <li><b>IV.</b> Where did you last leave something better than you found it?</li>
+    </ul>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- seats -->
+  <section>
+    <h2>Seats at the Table</h2>
+    <p class="h-sub">the founding trades, and the seats kept warm for their neighbours</p>
+    <div class="seat-line"><span class="trade">The Barbershop</span><span class="seat">founding seat</span></div>
+    <div class="seat-line"><span class="trade">The Artisan</span><span class="seat">founding seat</span></div>
+    <div class="seat-line"><span class="trade">The Drone Pilot</span><span class="seat">founding seat</span></div>
+    <div class="seat-line"><span class="trade">The Woodworker</span><span class="seat open">seat open &mdash; petition below</span></div>
+    <div class="seat-line"><span class="trade">The Restaurateur</span><span class="seat open">seat open &mdash; petition below</span></div>
+    <div class="seat-line"><span class="trade">The Builder</span><span class="seat open">seat open &mdash; petition below</span></div>
+    <p style="text-align:center; color:var(--ink-faint); font-size:14.5px; margin-top:26px;">
+      No trade is too small; no apron too worn. The council sits to serve the town, not itself.
+    </p>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- petition -->
+  <section id="petition">
+    <h2>Petition for Admission</h2>
+    <p class="h-sub">tell the council why you would sit with it &mdash; your words go by post, unaltered</p>
+    <div class="sheet">
+      <h3>To the Council of the Leather Apron Club</h3>
+      <p class="to">the humble petition of &mdash;</p>
+      <label>Your name <span class="req">*</span></label>
+      <input id="p-name" type="text" autocomplete="name" />
+      <label>Your trade or shop <span class="req">*</span></label>
+      <input id="p-trade" type="text" />
+      <label>What you would bring to the council <span class="req">*</span></label>
+      <textarea id="p-bring" rows="4" placeholder="a skill, a trade, a problem you cannot yet solve alone, a door that should open for others…"></textarea>
+      <label>What you hope the council carries with you</label>
+      <textarea id="p-hope" rows="3"></textarea>
+      <div class="actions">
+        <button id="p-send">Send the petition by post</button>
+        <button id="p-copy" class="ghost">Copy the petition</button>
+      </div>
+      <p class="fine">The petition opens as a letter to the club&rsquo;s steward &mdash; nothing is sent until you press send in your own mail. The council reads every word; answers come before the next sitting.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="rule-double"></div>
+    <p style="margin-top:26px">Kept in the spruce grove &middot; petitions and post to
+      <a href="mailto:hello@tylergranlund.com">hello@tylergranlund.com</a></p>
+    <p class="parlor">gran&middot;lund &middot; sv. &middot; spruce grove &middot; <b>together we are better, always</b></p>
+  </footer>
+</div>
+
+<script>
+  /* countdown to the first council */
+  (function () {
+    var el = document.getElementById("countdown");
+    var meet = new Date("2026-09-18T18:00:00-05:00");
+    var days = Math.ceil((meet - Date.now()) / 86400000);
+    if (days > 1) { el.textContent = "the council convenes in " + days + " days"; }
+    else if (days === 1) { el.textContent = "the council convenes tomorrow"; }
+    else if (days === 0) { el.textContent = "the council convenes this evening"; }
+    else { el.textContent = "the first council has convened"; }
+  })();
+
+  /* the petition: composed as a letter, sent by the member's own hand */
+  (function () {
+    function compose() {
+      var g = function (id) { return (document.getElementById(id).value || "").trim(); };
+      var name = g("p-name"), trade = g("p-trade");
+      var bring = g("p-bring"), hope = g("p-hope");
+      var lines = [
+        "To the Council of the Leather Apron Club,",
+        "",
+        "The humble petition of " + (name || "[name]") + ", " + (trade || "[trade]") + ".",
+        "",
+        "What I would bring to the council:",
+        (bring || "[ … ]"),
+        "",
+        hope ? "What I hope the council carries with me:" : "",
+        hope || "",
+        "",
+        "Submitted by my own hand, this day,",
+        name || "[name]"
+      ].filter(function (l, i, a) { return !(l === "" && a[i - 1] === ""); });
+      return lines.join("\n");
+    }
+    var btn = document.getElementById("p-send");
+    btn.addEventListener("click", function () {
+      var missing = [];
+      if (!document.getElementById("p-name").value.trim()) missing.push("your name");
+      if (!document.getElementById("p-trade").value.trim()) missing.push("your trade");
+      if (!document.getElementById("p-bring").value.trim()) missing.push("what you would bring");
+      if (missing.length) {
+        btn.textContent = "the petition wants " + missing.join(", ");
+        setTimeout(function () { btn.textContent = "Send the petition by post"; }, 2600);
+        return;
+      }
+      var href = "mailto:hello@tylergranlund.com"
+        + "?subject=" + encodeURIComponent("Petition for admission — the Leather Apron Club")
+        + "&body=" + encodeURIComponent(compose());
+      window.location.href = href;
+    });
+    document.getElementById("p-copy").addEventListener("click", function () {
+      var t = compose();
+      var done = function () {
+        var b = document.getElementById("p-copy");
+        b.textContent = "copied — paste it where you please";
+        setTimeout(function () { b.textContent = "Copy the petition"; }, 2400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(done, done);
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = t; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } catch (e) { /* noop */ }
+        ta.remove(); done();
+      }
+    });
+  })();
+</script>
+</body>
+</html>

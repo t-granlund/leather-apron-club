@@ -141,6 +141,14 @@
   .sheet button:hover { filter: brightness(1.08); }
   .sheet .fine { font-size: 13px; color: #6b5c40; margin: 18px 0 0; font-style: italic; }
 
+  .work { padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+  .work:last-child { border-bottom: 0; }
+  .work .w-trade { font-family: "IM Fell English SC", serif; font-size: 20px; color: var(--ink); }
+  .work .w-what { color: var(--ink-dim); font-size: 15.5px; margin: 4px 0 6px; }
+  .work .w-link { font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .04em; }
+  .work .w-link a { color: var(--sage); border-bottom: 1px dotted var(--sage); }
+  .work .w-link .live { color: var(--cedar); font-style: italic; }
+
   footer { padding: 56px 0 70px; text-align: center; color: var(--ink-faint); font-size: 14.5px; }
   footer .parlor { font-family: "IM Fell English", serif; letter-spacing: .12em; margin-top: 8px; }
   footer .parlor b { color: var(--sage); font-weight: 400; }
@@ -218,6 +226,34 @@
     <p style="text-align:center; color:var(--ink-faint); font-size:14.5px; margin-top:26px;">
       No trade is too small; no apron too worn. The council sits to serve the town, not itself.
     </p>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- works of the council -->
+  <section id="works">
+    <h2>Works of the Council</h2>
+    <p class="h-sub">what the grove hath already built for the town &mdash; each link live this day</p>
+    <div class="work">
+      <div class="w-trade">Benton Drones &mdash; Lead Intake</div>
+      <div class="w-what">A intake-house for the drone pilot&rsquo;s trade: every inquiry geocoded, filed to the board, and laid on the dashboard before the kettle whistles. Form to geocode to Jira, end to end.</div>
+      <div class="w-link"><a href="https://leads.bentondrones.com" target="_blank" rel="noopener">leads.bentondrones.com</a> &middot; <span class="live">live &amp; taking leads</span></div>
+    </div>
+    <div class="work">
+      <div class="w-trade">Charles &amp; Marie &mdash; The Barbershop&rsquo;s Door</div>
+      <div class="w-what">A shopfront worthy of the chair: hours, craft, and character for C&amp;M Barber Salon, set in type the way a barbershop deserves.</div>
+      <div class="w-link"><a href="https://www.candmbarbershop.net" target="_blank" rel="noopener">www.candmbarbershop.net</a> &middot; <span class="live">live</span></div>
+    </div>
+    <div class="work">
+      <div class="w-trade">The Resale Desk &mdash; Five Product Pages</div>
+      <div class="w-what">Spoken aloud, set to page, published abroad: full product detail pages for the Peloton, the Weber, the Colamy, the Craftsman, and the Alienware &mdash; listings carried to the marketplace by the agent&rsquo;s own hand.</div>
+      <div class="w-link"><a href="https://tylergranlund.com/resale/site/" target="_blank" rel="noopener">tylergranlund.com/resale/site</a> &middot; <span class="live">live &mdash; the Peloton already sold&hellip; or soon shall</span></div>
+    </div>
+    <div class="work">
+      <div class="w-trade">The Grove Itself &mdash; Spruce Grove OS</div>
+      <div class="w-what">The machine that builds these works: a voice-first agentic CLI, its desktop shell, and this very page among its products.</div>
+      <div class="w-link"><a href="https://sprucegrove.io" target="_blank" rel="noopener">sprucegrove.io</a> &middot; <a href="https://pypi.org/project/spruce-grove/" target="_blank" rel="noopener">pypi.org/project/spruce-grove</a> &middot; <span class="live">live</span></div>
+    </div>
   </section>
 
   <hr class="rule" />

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spruce Grove — A Founding Member's First Evening</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#EFE7D2; --parchment2:#EAE4D3; --ink:#3a3226; --brown:#6b5c40;
+    --tan:#B9AB8A; --red:#9c3d2e; --gold:#D2A069;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--parchment);color:var(--ink);
+    font:18px/1.7 "EB Garamond",Georgia,serif}
+  .sheet{max-width:760px;margin:0 auto;padding:48px 28px 80px}
+  header{text-align:center;margin-bottom:40px}
+  .kicker{font-family:"IM Fell English SC",serif;color:var(--red);
+    letter-spacing:.14em;font-size:15px}
+  h1{font-family:"IM Fell English SC",serif;font-weight:400;font-size:44px;
+    line-height:1.15;margin:10px 0 6px;color:var(--ink)}
+  .sub{font-style:italic;color:var(--brown);font-size:19px}
+  hr.rule{border:0;border-top:1px solid var(--tan);margin:36px 0}
+  h2{font-family:"IM Fell English SC",serif;font-weight:400;font-size:26px;
+    color:var(--red);margin:34px 0 10px}
+  p{margin:12px 0}
+  .step{background:var(--parchment2);border:1px solid var(--tan);
+    border-radius:10px;padding:16px 20px;margin:14px 0}
+  .step b{font-family:"IM Fell English SC",serif;font-weight:400;color:var(--brown)}
+  code,.cmd{font-family:"Courier New",monospace;font-size:15px;
+    background:#fff;border:1px solid var(--tan);border-radius:6px;
+    padding:2px 8px;white-space:nowrap}
+  .cmd{display:block;padding:12px 16px;margin:10px 0;text-align:left}
+  .note{border-left:3px solid var(--gold);padding:8px 16px;font-style:italic;color:var(--brown)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:17px}
+  th{font-family:"IM Fell English SC",serif;font-weight:400;color:var(--brown);
+    text-align:left;border-bottom:1px solid var(--tan);padding:8px}
+  td{border-bottom:1px dotted var(--tan);padding:8px;vertical-align:top}
+  .footer{margin-top:48px;text-align:center;color:var(--brown);font-style:italic;font-size:16px}
+  a{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div class="kicker">The Leather Apron Club &middot; For Founding Members</div>
+    <h1>Spruce Grove: Your First Evening</h1>
+    <div class="sub">A plain guide for plain speech with your own craftsman's apprentice.</div>
+  </header>
+
+  <h2>What this is, in two sentences</h2>
+  <p>Spruce Grove is an apprentice that lives inside your Mac and does computer work when you ask in plain English &mdash; writing, organizing, building little tools, fetching information. It runs entirely on your own machine, keeps its own record of what it did, and never touches anything outside the folder you point it at.</p>
+
+  <h2>One-time setup (about five minutes, the night before)</h2>
+  <div class="step"><b>The first step.</b> Open the program called <code>Terminal</code>. You'll find it the same way you find any program: press <code>&#8984;</code> + spacebar, type <code>Terminal</code>, press Enter. A plain window with a blinking cursor appears. That is your workshop door.</div>
+  <div class="step"><b>The second step.</b> Copy this line, paste it into the window, press Enter:<br>
+    <span class="cmd">curl -LsSf https://astral.sh/uv/install.sh | sh</span>
+    Then close the Terminal window and open a fresh one (same trick as before), so it notices the new tools.</div>
+  <div class="step"><b>The third step.</b> In the fresh window, type this and press Enter:<br>
+    <span class="cmd">uv tool install spruce-grove</span>
+    When it finishes, type <code>grove --version</code> and press Enter. If a version number answers back, your apprentice is hired.</div>
+  <p class="note">You will only ever do this once. Every evening after this, it is one word and one sentence.</p>
+
+  <h2>Every evening: three sentences</h2>
+  <p>Type <code>grove</code> and press Enter. The grove wakes up and asks where you'd like to work. From here, speak the way you'd speak to a competent friend:</p>
+  <table>
+    <tr><th>You say</th><th>What happens</th></tr>
+    <tr><td>&ldquo;Make a folder called Receipts and a list inside it of what I should keep.&rdquo;</td><td>It builds exactly that, inside the folder you chose.</td></tr>
+    <tr><td>&ldquo;Read my report draft and make the summary shorter.&rdquo;</td><td>It reads, edits, and shows you the result.</td></tr>
+    <tr><td>&ldquo;Look up the three nearest repair shops and put them in a table.&rdquo;</td><td>It searches, checks, and writes the table.</td></tr>
+  </table>
+  <p>When you're done for the night, type <code>exit</code>. It remembers where you left off.</p>
+
+  <h2>The four habits of a good master</h2>
+  <table>
+    <tr><th>Habit</th><th>Why</th></tr>
+    <tr><td><b>Point before you speak.</b> Start it in the folder you want worked on.</td><td>It cannot wander outside that folder. Your whole Mac stays untouched.</td></tr>
+    <tr><td><b>Ask for drafts, not miracles.</b> &ldquo;Draft a reply&rdquo; beats &ldquo;handle my email.&rdquo;</td><td>Small, clear tasks come back right the first time.</td></tr>
+    <tr><td><b>Read before you trust.</b> It shows its work; give it a glance.</td><td>It is diligent, but you are the master of the shop.</td></tr>
+    <tr><td><b>Steer mid-course.</b> Type while it works and it changes course.</td><td>Like dictating to a secretary who is already typing.</td></tr>
+  </table>
+
+  <h2>Bring to the first council</h2>
+  <p>Friday, September 18th, 6 o'clock. Bring one task you'd love to never do again &mdash; a pile of receipts, a messy folder, a letter you keep meaning to write. We will sit together, each at their own machine, and leave with the task done and the trick of it learned. That is the whole invention: <i>mutual aid, one craft shared.</i></p>
+
+  <h2>Plain-words glossary</h2>
+  <table>
+    <tr><td><b>The grove</b></td><td>What we call the apprentice program.</td></tr>
+    <tr><td><b>A prompt</b></td><td>Anything you type to it. A full sentence is a fine prompt.</td></tr>
+    <tr><td><b>A session</b></td><td>One working visit. It keeps the notes between visits.</td></tr>
+    <tr><td><b>To steer</b></td><td>To change direction while it works. Just start typing.</td></tr>
+    <tr><td><b>A folder</b></td><td>A drawer in your Mac's filing cabinet. The apprentice only opens the drawer you show it.</td></tr>
+  </table>
+
+  <div class="footer">
+    <hr class="rule">
+    <p>Questions before the council? Write to <a href="mailto:hello@tylergranlund.com">hello@tylergranlund.com</a>.</p>
+    <p>&ldquo;Together we are better. Always.&rdquo;</p>
+  </div>
+</div>
+</body>
+</html>

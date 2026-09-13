@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Benton Drones — Lead Intake · Works of the Leather Apron Club</title>
+<meta name="description" content="How a lead-intake pipeline for Benton Drones was built end to end with Spruce Grove OS: Python stdlib + SQLite core, geocoding, Jira, Render, Playwright-verified." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #EAE4D3; --ink-dim: #B7B2A0; --ink-faint: #8E8B7C;
+    --bg: #0E130F; --bg-2: #121813; --card: #161D18;
+    --moss: #588F5E; --sage: #98B79E; --cedar: #D2A069;
+    --line: rgba(234,228,211,.18); --line-soft: rgba(234,228,211,.10);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background:
+      radial-gradient(ellipse 900px 460px at 50% -6%, rgba(88,143,94,.16), transparent 60%),
+      var(--bg);
+    color: var(--ink); font-family: "EB Garamond", Georgia, serif;
+    font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--sage); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 26px; }
+  .sc { font-family: "IM Fell English SC", serif; }
+  .back { display: inline-block; margin: 34px 0 0; font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint); }
+  .back:hover { color: var(--sage); }
+  header { padding: 20px 0 34px; text-align: center; }
+  .rule-double { border-top: 3px double var(--line); margin: 18px auto 0; }
+  .kicker { font-family: "IM Fell English SC", serif; color: var(--cedar); font-size: 12.5px; letter-spacing: .3em; text-transform: uppercase; margin: 30px 0 8px; }
+  h1 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: clamp(2.2rem, 6.4vw, 3.6rem); line-height: 1.06; margin: 0 0 10px; }
+  .sub { font-style: italic; color: var(--ink-dim); margin: 0; }
+  .live-pill {
+    display: inline-block; margin-top: 18px; padding: 6px 18px; border: 1px solid var(--moss);
+    color: var(--sage); font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .06em;
+  }
+  .live-pill a { color: var(--ink); border-bottom: 1px dotted var(--ink); }
+  section { padding: 30px 0; }
+  h2 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 1.7rem; margin: 0 0 4px; }
+  .h-sub { color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 0 0 20px; }
+  p { color: var(--ink-dim); }
+  p b, li b { color: var(--ink); font-weight: 500; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 22px 0; }
+  .cell { border: 1px solid var(--line-soft); border-radius: 6px; background: var(--bg-2); padding: 16px 18px; }
+  .cell .c-t { font-family: "IM Fell English", serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--cedar); margin-bottom: 8px; }
+  .cell ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--ink-dim); }
+  .cell li { margin: 4px 0; }
+  ol.flow { margin: 0; padding: 0; list-style: none; counter-reset: f; }
+  ol.flow li { counter-increment: f; position: relative; padding: 12px 0 12px 54px; border-bottom: 1px solid var(--line-soft); font-size: 16px; color: var(--ink-dim); }
+  ol.flow li::before { content: counter(f, upper-roman); position: absolute; left: 8px; top: 14px; font-family: "IM Fell English", serif; font-size: 13px; color: var(--cedar); }
+  ol.flow li b { display: block; font-family: "IM Fell English", serif; font-size: 17px; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
+  .note { border-left: 2px solid var(--moss); padding: 4px 0 4px 16px; margin: 20px 0; font-style: italic; color: var(--ink-dim); }
+  footer { border-top: 1px solid var(--line-soft); margin-top: 40px; padding: 30px 0 60px; text-align: center; color: var(--ink-faint); font-size: 14px; }
+  footer .parlor { font-family: "IM Fell English", serif; letter-spacing: .1em; margin-top: 6px; }
+  footer .parlor b { color: var(--sage); font-weight: 400; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">&larr; back to the council hall</a>
+  <header>
+    <div class="rule-double"></div>
+    <div class="kicker">Works of the council &middot; portfolio piece the first</div>
+    <h1>Benton Drones &mdash; Lead Intake</h1>
+    <p class="sub">every inquiry geocoded, filed to the board, and on the dashboard before the kettle whistles</p>
+    <span class="live-pill">live at <a href="https://leads.bentondrones.com" target="_blank" rel="noopener">leads.bentondrones.com</a></span>
+    <div class="rule-double"></div>
+  </header>
+
+  <section>
+    <h2>The Trade, and the Need</h2>
+    <p>Benton Drones flies FPV and aerial work out of Bentonville, Arkansas; their storefront runs on Shopify. But a storefront takes orders &mdash; it does not <b>take customers</b>. Inquiries scattered across inboxes, each one retyped by hand, each one at the mercy of somebody remembering to follow up.</p>
+    <p>The ask: one front door for every lead, and a pipeline that files each lead itself &mdash; located, assigned, and visible on a board the whole crew trusts.</p>
+  </section>
+
+  <section>
+    <h2>Built With</h2>
+    <div class="grid">
+      <div class="cell">
+        <div class="c-t">Languages &amp; core</div>
+        <ul>
+          <li><b>Python</b> &mdash; standard library only at the core; <b>zero pip installs</b> to run the app</li>
+          <li><b>SQLite</b> built in &mdash; the whole state machine in one file</li>
+          <li><b>HTML/CSS</b> intake form, styled to the brand</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <div class="c-t">Platform &amp; integrations</div>
+        <ul>
+          <li><b>Geocoding</b> &mdash; every lead pinned to place</li>
+          <li><b>Jira</b> &mdash; leads filed as actionable tickets automatically</li>
+          <li><b>Render</b> hosting &mdash; <b>Docker</b> deployment, Let's Encrypt TLS</li>
+          <li><b>Neon Postgres</b> path via psycopg2 when scale asks; SQLite until it does</li>
+          <li><b>fpdf2</b> &mdash; true PDF exports per lead; HTML print view as fallback</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The End-to-End Pipeline</h2>
+    <p class="h-sub">how Spruce Grove OS carried it from a spoken sentence to a live subdomain</p>
+    <ol class="flow">
+      <li><b>The brief was spoken, not written.</b> Goals recorded as voice, transcribed on-device through the grove's dictation loop, and turned into a working charter &mdash; the club's first question asked of the work itself.</li>
+      <li><b>The brand was studied before a line was written.</b> An agent surveyed Benton Drones' live Shopify theme &mdash; typeface, palette, corner radii, CDN behavior &mdash; and wrote the design-system analysis the build would follow. The intake page looks like their shop because it was built <em>from</em> their shop.</li>
+      <li><b>The agent built; the human gated.</b> Sessions of the grove wrote the server, the pipeline, and the tests; every cutover step passed through human review before it touched DNS. A runbook was written so carefully it warns about the typo a person might make in the domain name.</li>
+      <li><b>Tests before trust.</b> Playwright end-to-end drives the form the way a customer does. Quality gates ran in-session, not on a hope.</li>
+      <li><b>DNS, verification, TLS.</b> CNAME at the registrar, domain verified in Render, certificate issued &mdash; then the whole pipeline was verified live, end to end: form &rarr; geocode &rarr; Jira &rarr; dashboard.</li>
+      <li><b>It stayed maintained.</b> Follow-up voice notes became changelog entries; the launch checklist lives in the repo beside the code it shipped.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Why It Holds</h2>
+    <div class="grid">
+      <div class="cell">
+        <div class="c-t">Stable</div>
+        <ul>
+          <li>Core dependencies: <b>none to install</b> &mdash; the fewer moving parts, the fewer 3 a.m. surprises</li>
+          <li>SQLite state with a Postgres upgrade path already wired</li>
+          <li>Dockerized: the same image locally and in production</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <div class="c-t">Secure</div>
+        <ul>
+          <li>Secrets outside the code; DNS and mail records never touched by automation</li>
+          <li>TLS by default; subdomain isolated from the storefront's systems</li>
+          <li>Rate-limit aware by design &mdash; the brand study read Shopify's limits before scraping anything</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">The method generalizes to any table so long as every party's perspective is heard before the build: the owner's cash-and-time reality, the crew's follow-up habits, the customer's one-finger patience. Ask the standing questions first; the software is the minutes of that meeting.</div>
+  </section>
+
+  <footer>
+    <div>Work of the Leather Apron Club &middot; built with <a href="https://sprucegrove.io">Spruce Grove OS</a></div>
+    <div class="parlor">gran&middot;lund &middot; sv. &middot; <b>together we are better, always</b></div>
+  </footer>
+</div>
+</body>
+</html>

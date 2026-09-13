@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bentonville Barbershop — a shopfront · Works of the Leather Apron Club</title>
+<meta name="description" content="How the Bentonville barbershop's website was built end to end with Spruce Grove OS: static HTML/CSS, scripted accessibility audits, photo pipeline, Cloudflare Pages, and an owner's guide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #EAE4D3; --ink-dim: #B7B2A0; --ink-faint: #8E8B7C;
+    --bg: #0E130F; --bg-2: #121813; --card: #161D18;
+    --moss: #588F5E; --sage: #98B79E; --cedar: #D2A069;
+    --line: rgba(234,228,211,.18); --line-soft: rgba(234,228,211,.10);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background:
+      radial-gradient(ellipse 900px 460px at 50% -6%, rgba(88,143,94,.16), transparent 60%),
+      var(--bg);
+    color: var(--ink); font-family: "EB Garamond", Georgia, serif;
+    font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--sage); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 26px; }
+  .back { display: inline-block; margin: 34px 0 0; font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint); }
+  .back:hover { color: var(--sage); }
+  header { padding: 20px 0 34px; text-align: center; }
+  .rule-double { border-top: 3px double var(--line); margin: 18px auto 0; }
+  .kicker { font-family: "IM Fell English SC", serif; color: var(--cedar); font-size: 12.5px; letter-spacing: .3em; text-transform: uppercase; margin: 30px 0 8px; }
+  h1 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: clamp(2.2rem, 6.4vw, 3.6rem); line-height: 1.06; margin: 0 0 10px; }
+  .sub { font-style: italic; color: var(--ink-dim); margin: 0; }
+  .live-pill {
+    display: inline-block; margin-top: 18px; padding: 6px 18px; border: 1px solid var(--moss);
+    color: var(--sage); font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .06em;
+  }
+  .live-pill a { color: var(--ink); border-bottom: 1px dotted var(--ink); }
+  section { padding: 30px 0; }
+  h2 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 1.7rem; margin: 0 0 4px; }
+  .h-sub { color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 0 0 20px; }
+  p { color: var(--ink-dim); }
+  p b, li b { color: var(--ink); font-weight: 500; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 22px 0; }
+  .cell { border: 1px solid var(--line-soft); border-radius: 6px; background: var(--bg-2); padding: 16px 18px; }
+  .cell .c-t { font-family: "IM Fell English", serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--cedar); margin-bottom: 8px; }
+  .cell ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--ink-dim); }
+  .cell li { margin: 4px 0; }
+  ol.flow { margin: 0; padding: 0; list-style: none; counter-reset: f; }
+  ol.flow li { counter-increment: f; position: relative; padding: 12px 0 12px 54px; border-bottom: 1px solid var(--line-soft); font-size: 16px; color: var(--ink-dim); }
+  ol.flow li::before { content: counter(f, upper-roman); position: absolute; left: 8px; top: 14px; font-family: "IM Fell English", serif; font-size: 13px; color: var(--cedar); }
+  ol.flow li b { display: block; font-family: "IM Fell English", serif; font-size: 17px; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
+  .note { border-left: 2px solid var(--moss); padding: 4px 0 4px 16px; margin: 20px 0; font-style: italic; color: var(--ink-dim); }
+  footer { border-top: 1px solid var(--line-soft); margin-top: 40px; padding: 30px 0 60px; text-align: center; color: var(--ink-faint); font-size: 14px; }
+  footer .parlor { font-family: "IM Fell English", serif; letter-spacing: .1em; margin-top: 6px; }
+  footer .parlor b { color: var(--sage); font-weight: 400; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">&larr; back to the council hall</a>
+  <header>
+    <div class="rule-double"></div>
+    <div class="kicker">Works of the council &middot; portfolio piece the second</div>
+    <h1>Bentonville Barbershop</h1>
+    <p class="sub">a shopfront worthy of the chair &mdash; hours, craft, and character, set in type</p>
+    <span class="live-pill">live at <a href="https://www.candmbarbershop.net" target="_blank" rel="noopener">www.candmbarbershop.net</a></span>
+    <div class="rule-double"></div>
+  </header>
+
+  <section>
+    <h2>The Trade, and the Need</h2>
+    <p>A barbershop in Bentonville with loyal chairs and no front door on the internet. The owners needed a page their neighbors could find &mdash; hours, the craft, the booking &mdash; without a subscription, a site-builder bill, or a single thing they'd have to phone a stranger to change.</p>
+    <p>The ask, in club terms: <b>build for the town first.</b> The smallest honest surface that makes the phone ring.</p>
+  </section>
+
+  <section>
+    <h2>Built With</h2>
+    <div class="grid">
+      <div class="cell">
+        <div class="c-t">Languages &amp; core</div>
+        <ul>
+          <li><b>HTML &amp; CSS</b> &mdash; hand-set static pages; no framework, no build step, nothing to break</li>
+          <li><b>Python tooling</b> &mdash; a photo-conversion script for the shop's own pictures, and a scripted <b>axe accessibility audit</b> run against the pages</li>
+          <li><b>Booking flow</b> &mdash; a dedicated page that puts the chair one click away</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <div class="c-t">Platform &amp; delivery</div>
+        <ul>
+          <li><b>Cloudflare Pages</b> &mdash; headers and caching configured in the repo (<span class="sc">_headers</span>)</li>
+          <li><b>GitHub Pages preview</b> &mdash; the owners watched the site grow before it went live</li>
+          <li><b>Owner's guide</b> &mdash; a written walkthrough so the shop can serve itself</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The End-to-End Pipeline</h2>
+    <p class="h-sub">how Spruce Grove OS carried it from a conversation to a live door</p>
+    <ol class="flow">
+      <li><b>The owners were heard first.</b> Charles and Marie's perspective set the spec: a page they could read like a menu, change like a chalkboard, and afford like a haircut.</li>
+      <li><b>The agent built the surface.</b> Sessions of the grove set the pages in type, wired the booking flow, and kept the whole thing static &mdash; the architecture a barbershop actually needs.</li>
+      <li><b>Accessibility was scripted, not wished for.</b> An axe audit runs against the pages as tooling in the repo &mdash; contrast, labels, landmarks &mdash; because a shopfront that excludes neighbors fails the trade.</li>
+      <li><b>Pictures were processed, not pasted.</b> A conversion script turned the shop's own photos (iPhone stereo dumps included) into web-ready assets.</li>
+      <li><b>Preview, then door.</b> The owners reviewed on a Pages preview; the custom domain went live with headers configured from the repository.</li>
+      <li><b>It was left better.</b> The owner's guide means the next change is theirs to make &mdash; the pipeline taught the shop to fish.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Why It Holds</h2>
+    <div class="grid">
+      <div class="cell">
+        <div class="c-t">Stable</div>
+        <ul>
+          <li>Static pages: no server to patch, no database to lose, no plugins to expire</li>
+          <li>Hosting configuration lives <b>in the repo</b> &mdash; the site is reproducible from a folder</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <div class="c-t">Secure &amp; applicable</div>
+        <ul>
+          <li>No forms, no stored data, no attack surface beyond the page itself</li>
+          <li>Scripted accessibility checks keep the door open to every neighbor</li>
+          <li>The pattern &mdash; listen, build static, audit, hand over a guide &mdash; fits any shop on any street</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Every party's perspective was in the room before the build: the owners' budget and pride, the customers' thumbs and eyes, the town's search habits. Convey them all and the smallest site holds like a well-set chair.</div>
+  </section>
+
+  <footer>
+    <div>Work of the Leather Apron Club &middot; built with <a href="https://sprucegrove.io">Spruce Grove OS</a></div>
+    <div class="parlor">gran&middot;lund &middot; sv. &middot; <b>together we are better, always</b></div>
+  </footer>
+</div>
+</body>
+</html>

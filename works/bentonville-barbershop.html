@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bentonville Barbershop — a shopfront · Works of the Leather Apron Club</title>
-<meta name="description" content="How the Bentonville barbershop's website was built end to end with Spruce Grove OS: static HTML/CSS, scripted accessibility audits, photo pipeline, Cloudflare Pages, and an owner's guide." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bentonville Barber Company — the council's home · Works of the Leather Apron Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #EAE4D3; --ink-dim: #B7B2A0; --ink-faint: #8E8B7C;
@@ -28,14 +26,15 @@
   .wrap { max-width: 780px; margin: 0 auto; padding: 0 26px; }
   .back { display: inline-block; margin: 34px 0 0; font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint); }
   .back:hover { color: var(--sage); }
-  header { padding: 20px 0 34px; text-align: center; }
-  .rule-double { border-top: 3px double var(--line); margin: 18px auto 0; }
-  .kicker { font-family: "IM Fell English SC", serif; color: var(--cedar); font-size: 12.5px; letter-spacing: .3em; text-transform: uppercase; margin: 30px 0 8px; }
-  h1 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: clamp(2.2rem, 6.4vw, 3.6rem); line-height: 1.06; margin: 0 0 10px; }
-  .sub { font-style: italic; color: var(--ink-dim); margin: 0; }
+  header { text-align: center; padding: 26px 0 10px; }
+  .rule-double { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); height: 5px; margin: 0 auto; max-width: 420px; }
+  .kicker { font-family: "IM Fell English", serif; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--cedar); margin: 18px 0 4px; }
+  h1 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 2.6rem; margin: 0 0 6px; line-height: 1.1; }
+  .sub { font-style: italic; color: var(--ink-dim); margin: 0 0 16px; }
   .live-pill {
-    display: inline-block; margin-top: 18px; padding: 6px 18px; border: 1px solid var(--moss);
-    color: var(--sage); font-family: "IM Fell English", serif; font-size: 14px; letter-spacing: .06em;
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint);
+    border: 1px solid var(--line-soft); border-radius: 999px; padding: 6px 18px; margin: 6px 0 18px;
   }
   .live-pill a { color: var(--ink); border-bottom: 1px dotted var(--ink); }
   section { padding: 30px 0; }
@@ -43,11 +42,6 @@
   .h-sub { color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 0 0 20px; }
   p { color: var(--ink-dim); }
   p b, li b { color: var(--ink); font-weight: 500; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 22px 0; }
-  .cell { border: 1px solid var(--line-soft); border-radius: 6px; background: var(--bg-2); padding: 16px 18px; }
-  .cell .c-t { font-family: "IM Fell English", serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--cedar); margin-bottom: 8px; }
-  .cell ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--ink-dim); }
-  .cell li { margin: 4px 0; }
   ol.flow { margin: 0; padding: 0; list-style: none; counter-reset: f; }
   ol.flow li { counter-increment: f; position: relative; padding: 12px 0 12px 54px; border-bottom: 1px solid var(--line-soft); font-size: 16px; color: var(--ink-dim); }
   ol.flow li::before { content: counter(f, upper-roman); position: absolute; left: 8px; top: 14px; font-family: "IM Fell English", serif; font-size: 13px; color: var(--cedar); }
@@ -64,74 +58,48 @@
   <a class="back" href="../">&larr; back to the council hall</a>
   <header>
     <div class="rule-double"></div>
-    <div class="kicker">Works of the council &middot; portfolio piece the second</div>
-    <h1>Bentonville Barbershop</h1>
-    <p class="sub">a shopfront worthy of the chair &mdash; hours, craft, and character, set in type</p>
-    <span class="live-pill">live at <a href="https://www.candmbarbershop.net" target="_blank" rel="noopener">www.candmbarbershop.net</a></span>
+    <div class="kicker">Works of the council &middot; the homecoming</div>
+    <h1>Bentonville Barber Company</h1>
+    <p class="sub">the shop that exists because a neighbor had a key &mdash; the thesis, with chairs</p>
+    <span class="live-pill">
+      <a href="https://www.bentonvillebarbercompany.com" target="_blank" rel="noopener">bentonvillebarbercompany.com</a>
+      &middot;
+      <a href="https://book.squareup.com/appointments/9satyflw7ax0n7/location/LHWM21XKXHJQ2/services" target="_blank" rel="noopener">book a chair</a>
+    </span>
     <div class="rule-double"></div>
   </header>
 
   <section>
-    <h2>The Trade, and the Need</h2>
-    <p>A barbershop in Bentonville with loyal chairs and no front door on the internet. The owners needed a page their neighbors could find &mdash; hours, the craft, the booking &mdash; without a subscription, a site-builder bill, or a single thing they'd have to phone a stranger to change.</p>
-    <p>The ask, in club terms: <b>build for the town first.</b> The smallest honest surface that makes the phone ring.</p>
+    <h2>The Shop, and How It Came to Be</h2>
+    <p><b>Victor Rubio</b>, with his family behind him, opened Bentonville Barber Company after leaving a shop whose owner didn't keep the morals the trade deserves. <b>Drew Garrison</b> and <b>Daniel Devault</b> came with him &mdash; the originals. <b>Ernie Herrera</b>, <b>John Hill</b>, and <b>Jonny Williams</b> fill out the chairs: good dudes, every one.</p>
+    <p>That is how the best shops are founded &mdash; not on a business plan, but on a line a tradesman will not cross, and the people who cross the street to stand with him.</p>
   </section>
 
   <section>
-    <h2>Built With</h2>
-    <div class="grid">
-      <div class="cell">
-        <div class="c-t">Languages &amp; core</div>
-        <ul>
-          <li><b>HTML &amp; CSS</b> &mdash; hand-set static pages; no framework, no build step, nothing to break</li>
-          <li><b>Python tooling</b> &mdash; a photo-conversion script for the shop's own pictures, and a scripted <b>axe accessibility audit</b> run against the pages</li>
-          <li><b>Booking flow</b> &mdash; a dedicated page that puts the chair one click away</li>
-        </ul>
-      </div>
-      <div class="cell">
-        <div class="c-t">Platform &amp; delivery</div>
-        <ul>
-          <li><b>Cloudflare Pages</b> &mdash; headers and caching configured in the repo (<span class="sc">_headers</span>)</li>
-          <li><b>GitHub Pages preview</b> &mdash; the owners watched the site grow before it went live</li>
-          <li><b>Owner's guide</b> &mdash; a written walkthrough so the shop can serve itself</li>
-        </ul>
-      </div>
-    </div>
+    <h2>The Spot</h2>
+    <p>The old room sat in a plaza by Daylight Donuts, across from the Sam's Club home office (2308 SE 28th St). The landlord raised the rent. And then the thing this whole club is built on happened: <b>a customer had a spot open</b> &mdash; 113 W Central Ave, Suite 201, on the square in downtown Bentonville &mdash; and handed it over.</p>
+    <p>Helping each other. Not a slogan. A floor plan.</p>
   </section>
 
   <section>
-    <h2>The End-to-End Pipeline</h2>
-    <p class="h-sub">how Spruce Grove OS carried it from a conversation to a live door</p>
+    <h2>The Patron</h2>
+    <p>From the club's ledger: Tyler Granlund has been in Drew's chair since 2020 &mdash; first at Uptown Barber Company's downtown Bentonville spot, then following the shop to Centerton, where Drew Garrison worked. He loved their ethos enough to film a <b>onewheel edit of the ride from his house to the shop</b>; it lives in the Centerton shop's Instagram archives. Drew has been his dude since he moved here. When Victor opened the new shop, Drew came, and Tyler followed.</p>
+  </section>
+
+  <section>
+    <h2>What the Grove Does Here</h2>
+    <p class="h-sub">the club convenes where the thesis already worked</p>
     <ol class="flow">
-      <li><b>The owners were heard first.</b> Charles and Marie's perspective set the spec: a page they could read like a menu, change like a chalkboard, and afford like a haircut.</li>
-      <li><b>The agent built the surface.</b> Sessions of the grove set the pages in type, wired the booking flow, and kept the whole thing static &mdash; the architecture a barbershop actually needs.</li>
-      <li><b>Accessibility was scripted, not wished for.</b> An axe audit runs against the pages as tooling in the repo &mdash; contrast, labels, landmarks &mdash; because a shopfront that excludes neighbors fails the trade.</li>
-      <li><b>Pictures were processed, not pasted.</b> A conversion script turned the shop's own photos (iPhone stereo dumps included) into web-ready assets.</li>
-      <li><b>Preview, then door.</b> The owners reviewed on a Pages preview; the custom domain went live with headers configured from the repository.</li>
-      <li><b>It was left better.</b> The owner's guide means the next change is theirs to make &mdash; the pipeline taught the shop to fish.</li>
+      <li><b>The chairs take the trade.</b> Bookings run on Square; walk-ins at the door. The shop runs on craft, not on a website it has to babysit.</li>
+      <li><b>The help already crossed the counter.</b> A barber passed a business owner an IT contact &mdash; recorded in the club's receipts, before the club had a name.</li>
+      <li><b>The first council convenes in the chairs.</b> Friday, September 18, 2026 &mdash; in the spot a neighbor gave, to show the room what the machine can do: speak, and it builds.</li>
+      <li><b>The shopfront ships with the shop.</b> Mock-up in hand &mdash; they own it, the club maintains. The next surface for the square is theirs to approve.</li>
     </ol>
   </section>
 
   <section>
     <h2>Why It Holds</h2>
-    <div class="grid">
-      <div class="cell">
-        <div class="c-t">Stable</div>
-        <ul>
-          <li>Static pages: no server to patch, no database to lose, no plugins to expire</li>
-          <li>Hosting configuration lives <b>in the repo</b> &mdash; the site is reproducible from a folder</li>
-        </ul>
-      </div>
-      <div class="cell">
-        <div class="c-t">Secure &amp; applicable</div>
-        <ul>
-          <li>No forms, no stored data, no attack surface beyond the page itself</li>
-          <li>Scripted accessibility checks keep the door open to every neighbor</li>
-          <li>The pattern &mdash; listen, build static, audit, hand over a guide &mdash; fits any shop on any street</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note">Every party's perspective was in the room before the build: the owners' budget and pride, the customers' thumbs and eyes, the town's search habits. Convey them all and the smallest site holds like a well-set chair.</div>
+    <div class="note">A shop born of a landlord's greed and a neighbor's kindness now hosts a circle founded on the same math. Every party's perspective was in the room before any build: the owners' pride and their books, the customers' thumbs, the town's habits. Convey them all and the smallest thing holds like a well-set chair.</div>
   </section>
 
   <footer>

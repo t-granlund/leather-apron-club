@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Method — how the tools found their people · The Leather Apron Club</title>
+<link rel="icon" type="image/png" href="works/assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,560&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E130F; --bg2:#131B15; --ink:#EAE4D3; --ink-dim:#C9CFC2; --ink-faint:#8A938A;
+    --moss:#6FA97A; --sage:#9DB8A2; --cedar:#E4AA71; --gold:#D2A069;
+    --line:rgba(234,228,211,.14); --line-soft:rgba(234,228,211,.07);
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+    radial-gradient(ellipse 1100px 520px at 50% -8%, rgba(88,143,94,.17), transparent 60%),
+    radial-gradient(ellipse 800px 420px at 90% 106%, rgba(228,170,113,.08), transparent 62%),
+    var(--bg);
+    color:var(--ink);font-family:"EB Garamond",Georgia,serif;font-size:18.5px;line-height:1.75;
+    -webkit-font-smoothing:antialiased}
+  #grove-grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+    box-shadow:inset 0 0 200px rgba(0,0,0,.5)}
+  .era-ghost{position:fixed;top:10px;right:16px;font-family:var(--mono);font-size:11px;
+    color:rgba(234,228,211,.4);letter-spacing:.14em;z-index:70}
+  .wrap{max-width:860px;margin:0 auto;padding:64px 26px 110px}
+  .back{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);text-decoration:none}
+  .back:hover{color:var(--ink)}
+  header{text-align:center;margin:34px 0 10px}
+  header .mark{width:118px;height:auto;filter:drop-shadow(0 10px 30px rgba(88,143,94,.45));display:block;margin:0 auto 20px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--cedar);margin:0 0 18px}
+  h1{font-family:Fraunces,Georgia,serif;font-weight:560;font-size:clamp(2.6rem,6vw,4rem);
+     line-height:1.05;color:var(--ink);margin:0 0 18px;letter-spacing:-.01em}
+  .dek{font-size:1.16em;font-style:italic;color:var(--ink-dim);max-width:36em;margin:0 auto}
+  .rule{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(234,228,211,.25),transparent);margin:34px 0}
+  .rune-line{display:block;width:150px;margin:22px auto 0}
+  h2{font-family:"IM Fell English SC",serif;font-weight:400;font-size:1.7rem;color:var(--ink);
+     margin:64px 0 6px;letter-spacing:.02em}
+  h2 .no{font-family:var(--mono);font-size:.55em;color:var(--cedar);letter-spacing:.24em;display:block;margin-bottom:6px}
+  p{margin:14px 0}
+  .lead{font-size:1.14em;color:var(--ink)}
+  em.warm{color:var(--cedar);font-style:normal}
+  .side{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:26px 0 10px}
+  .count{display:flex;align-items:baseline;justify-content:center;gap:26px;margin:38px 0 8px;flex-wrap:wrap}
+  .count .n{font-family:Fraunces,Georgia,serif;font-weight:560;color:var(--ink)}
+  .count .n.small{font-size:2.2rem;color:var(--ink-dim)}
+  .count .n.big{font-size:4.6rem;color:var(--cedar);text-shadow:0 0 44px rgba(228,170,113,.28)}
+  .count .arrow{font-family:var(--mono);color:var(--ink-faint);font-size:1.2rem}
+  .count-label{text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 6px}
+  .stratum{border:1px solid var(--line);outline:1px solid var(--line-soft);outline-offset:5px;
+    background:var(--bg2);padding:22px 24px;margin:16px 0}
+  .stratum .s-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--cedar);margin:0 0 6px}
+  .stratum h3{font-family:Fraunces,Georgia,serif;font-weight:560;color:var(--ink);margin:0 0 8px;font-size:1.22rem}
+  .stratum p{margin:8px 0 0;color:var(--ink-dim);font-size:1.0em}
+  .rules{counter-reset:rule;margin:22px 0}
+  .rule-row{display:flex;gap:18px;padding:16px 4px;border-bottom:1px solid var(--line-soft)}
+  .rule-row:last-child{border-bottom:0}
+  .rule-row::before{counter-increment:rule;content:counter(rule,decimal-leading-zero);
+    font-family:var(--mono);font-size:12px;color:var(--cedar);letter-spacing:.1em;padding-top:6px}
+  .rule-row b{color:var(--ink);font-weight:600}
+  .rule-row span{display:block;color:var(--ink-dim);font-size:.98em}
+  table{width:100%;border-collapse:collapse;margin:18px 0}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-faint);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+  td{padding:12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--ink-dim)}
+  td:first-child{color:var(--ink);font-weight:600;width:38%}
+  .ex{border-left:2px solid var(--cedar);padding:4px 0 4px 20px;margin:20px 0}
+  .ex .ex-k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--cedar);margin:0 0 4px}
+  .ex b{color:var(--ink)}
+  .ex p{margin:4px 0 0;color:var(--ink-dim)}
+  .stamp{position:absolute;top:18px;right:18px;transform:rotate(-3deg);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--cedar);border:2px solid currentColor;outline:1px solid rgba(228,170,113,.4);
+    outline-offset:3px;padding:6px 10px;border-radius:2px;opacity:.92}
+  .transcend{border:1px solid var(--line);outline:1px solid var(--line-soft);outline-offset:5px;
+    background:var(--bg2);padding:30px 30px 26px;margin:26px 0;position:relative}
+  .pull{font-family:Fraunces,Georgia,serif;font-size:1.5rem;font-weight:560;line-height:1.3;
+    color:var(--ink);margin:30px 0;padding-left:22px;border-left:2px solid var(--cedar)}
+  .pull em{color:var(--cedar);font-style:normal}
+  footer{margin-top:70px;text-align:center}
+  footer .fine{font-size:.86em;color:var(--ink-faint);font-style:italic;max-width:34em;margin:0 auto}
+  footer .motto{font-family:"IM Fell English SC",serif;color:var(--cedar);margin-top:16px;font-size:1.1rem}
+  @media (max-width:640px){ .wrap{padding:40px 18px 90px} .count .n.big{font-size:3.2rem} .stamp{position:static;display:inline-block;margin-bottom:14px} }
+</style>
+</head>
+<body>
+<div id="grove-grain" aria-hidden="true"></div>
+<div class="era-ghost">EST · MMXXVI</div>
+<div class="wrap">
+  <a class="back" href="./">&larr; back to the council hall</a>
+
+  <header>
+    <img class="mark" src="works/assets/spruce_grove_official.png" alt="">
+    <p class="kicker">The Leather Apron Club &middot; an end-to-end account &amp; training guide</p>
+    <h1>How the Tools<br>Found Their People</h1>
+    <p class="dek">What Code Puppy was. How it worked. How a handful of seats became seventy-five thousand and counting. And the two people who proved that what you already know is enough to begin.</p>
+    <svg class="rune-line" viewBox="0 0 120 24" aria-hidden="true"><g stroke="#E4AA71" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".55"><path d="M60 3 V21 M60 10 L45 4 M60 10 L75 4"/><path d="M10 12 H42 M78 12 H110" opacity=".45"/></g></svg>
+  </header>
+
+  <h2><span class="no">I · THE PUPPY</span>What Code Puppy was</h2>
+  <p class="lead">Code Puppy began as an <em class="warm">open-source</em> project by Michael Pfaffenberger: a command-line apprentice that could read a codebase, write code, run its own checks, and fix what it broke — and it explained itself the whole way.</p>
+  <p>It was not magic and it was not a product you bought. It was a working animal: eager, a little opinionated, endlessly patient. You gave it a task in plain sentences. It thought out loud — you could watch its reasoning stream past, correct it mid-sentence, and steer it like dictating to a secretary who was already typing. If it died mid-job, it came back and picked up where it left off.</p>
+  <p>The whole temperament fit in four behaviors:</p>
+  <table>
+    <tr><th>It does this</th><th>What that means for a person</th></tr>
+    <tr><td>It takes dictation</td><td>You speak the task on a drive. No new language to learn first.</td></tr>
+    <tr><td>It shows its work</td><td>Nothing happens in the dark. You watch it think, so you can trust it — or stop it.</td></tr>
+    <tr><td>You steer mid-run</td><td>Start typing while it works and it changes course. The human is the master of the shop.</td></tr>
+    <tr><td>It survives itself</td><td>It keeps its notes between visits. Progress is never lost to a crash.</td></tr>
+  </table>
+  <p>Everything that follows — the seventy-five thousand, the director title, this club — grew out of those four behaviors and one decision: <em class="warm">the tool adapts to the person's existing knowledge, never the reverse.</em></p>
+
+  <h2><span class="no">II · HOW IT WORKS</span>The four habits of a good master</h2>
+  <p>Before the scale, there was the craft of working with the apprentice. It fits on an index card, and it is the actual training:</p>
+  <table>
+    <tr><th>Habit</th><th>Why</th></tr>
+    <tr><td>Point before you speak</td><td>Start it in the folder you want worked on. It cannot wander outside that drawer. Everything else stays untouched.</td></tr>
+    <tr><td>Ask for drafts, not miracles</td><td>&ldquo;Draft a reply&rdquo; beats &ldquo;handle my email.&rdquo; Small, clear tasks come back right the first time.</td></tr>
+    <tr><td>Read before you trust</td><td>It shows its work. Give it a glance. It is diligent, but you are the master of the shop.</td></tr>
+    <tr><td>Steer mid-course</td><td>Type while it works and it changes direction — like dictating to a secretary who is already typing.</td></tr>
+  </table>
+  <p>That is the entire manual. A person who can write a sentence can run it on day one. That sentence is the whole onboarding.</p>
+
+  <div class="side">III · The Arc — a true count, still counting</div>
+  <div class="count">
+    <span class="n small">10&ndash;15</span>
+    <span class="arrow">&mdash;&mdash;&#10230;</span>
+    <span class="n big">75,000+</span>
+  </div>
+  <p class="count-label">seats &middot; and counting</p>
+  <p>Inside one of the largest companies on earth, the tool moved the way good tools actually move — not by decree from the top, but hand to hand. This is the shape of that arc:</p>
+  <div class="stratum">
+    <p class="s-kicker">First · the handful</p>
+    <h3>Ten to fifteen people, and a working animal</h3>
+    <p>A small circle of engineers used the puppy because it made their days better. No rollout plan. No memo. Just neighbors showing neighbors a thing that works — the oldest distribution network there is.</p>
+  </div>
+  <div class="stratum">
+    <p class="s-kicker">Then · the trainer arrives</p>
+    <h3>John Choi — the craft made teachable</h3>
+    <p>A UI/UX designer and trainer, brought aboard with Ashley's help, did the thing that separates tools that spread from tools that die: he <em class="warm">applied it to real work, in front of real people, and trained them</em> — not on theory, on their own tasks. He made the steering visible. He made the drafts safe to trust. Every session ended with someone's actual work done.</p>
+  </div>
+  <div class="stratum">
+    <p class="s-kicker">Then · the multiplier</p>
+    <h3>Every person trained became a trainer</h3>
+    <p>The four habits fit on an index card, so they traveled on index cards. Honest requirements — say what you actually need. Clear timelines — small, dated, real. Those two disciplines did more for adoption than any feature ever did: people trusted the tool because the expectations were honest.</p>
+  </div>
+  <div class="stratum">
+    <p class="s-kicker">Now · the count continues</p>
+    <h3>Seventy-five thousand and counting</h3>
+    <p>Not because a mandate came down, but because watching a neighbor finish their real work in front of you is the only advertisement that has ever worked.</p>
+  </div>
+
+  <h2><span class="no">IV · THE TRANSCENDENCE</span>The person who proved it</h2>
+  <div class="transcend">
+    <div class="stamp">credentials optional</div>
+    <p class="lead">Here is the part that matters most, and it is a person, not a number.</p>
+    <p>My wife, <b>Ashley</b>, is thirty-five years old this month. She has <em class="warm">no college degree</em>. She is now <b>Director of Agentic Work for all of Marketplace</b> — and she is already transcending that.</p>
+    <p>She did not climb the ladder that was given. She built a new one, out of the thing this whole account is about: she took the tools to people who had been told the tools were not for them, and she organized the work the honest way — real requirements, clear timelines, and a standing refusal to pretend that any of this requires a credential to touch.</p>
+    <p>The tool never asked her where she went to school. It asked her what needed to be done. It turns out that was the only question that mattered.</p>
+  </div>
+  <div class="pull">Giving people the tools they need, <em>with their existing knowledge</em>, is all you need. Add honesty through requirements and clear timelines, and a non-graduate at thirty-four becomes the director of the thing at thirty-five.</div>
+
+  <h2><span class="no">V · THE METHOD</span>Six rules, distilled from all of it</h2>
+  <p>This is the end-to-end method — the one you can run with your own council, your own team, your own town:</p>
+  <div class="rules">
+    <div class="rule-row"><div><b>Start with what they already know.</b><span>Existing knowledge is the foundation, never the obstacle. The tool meets the plumber in plumbing, the accountant in ledgers.</span></div></div>
+    <div class="rule-row"><div><b>Speak the task.</b><span>No new language before the first win. The plain sentence is the interface.</span></div></div>
+    <div class="rule-row"><div><b>Honesty through requirements.</b><span>Say what you actually need — not what sounds impressive. The tool, and the person, do better with the truth.</span></div></div>
+    <div class="rule-row"><div><b>Clear timelines, small and dated.</b><span>Trust is built by finished things. One task, this week, done — beats a roadmap for a someday.</span></div></div>
+    <div class="rule-row"><div><b>Demonstrate, don't mandate.</b><span>Nobody was ever trained by a memo. Do the work in front of them, on their work.</span></div></div>
+    <div class="rule-row"><div><b>Every person trained becomes a trainer.</b><span>The index card travels. This is how ten becomes seventy-five thousand — and how a town becomes a council.</span></div></div>
+  </div>
+
+  <h2><span class="no">VI · THE EXERCISES</span>How to run it yourself</h2>
+  <div class="ex">
+    <p class="ex-k">Exercise one · the first evening</p>
+    <b>The one-task pledge.</b>
+    <p>Bring one task you would love to never do again — a pile of receipts, a messy folder, a letter you keep meaning to write. Speak it to the apprentice. Finish it that night. Leave with the work done and the trick of it learned.</p>
+  </div>
+  <div class="ex">
+    <p class="ex-k">Exercise two · the second week</p>
+    <b>The teach-back.</b>
+    <p>Whoever finished a task last week now runs the session for someone new — on the newcomer's task, not their own. The four habits fit on an index card; hand them the card at the end.</p>
+  </div>
+  <div class="ex">
+    <p class="ex-k">Exercise three · every council</p>
+    <b>The honest-requirements drill.</b>
+    <p>Before any task is spoken, say it plainly to a neighbor first: what is actually needed, and by when. If the neighbor cannot repeat it back, the requirement is not honest yet. Then give it to the apprentice.</p>
+  </div>
+
+  <h2><span class="no">VII · THE CODA</span>Why this club exists</h2>
+  <p>Spruce Grove — the apprentice this club teaches — is grown from the same open-source root as Code Puppy, replanted around values of its own: <em class="warm">together we are better, always.</em> The story above is why the Leather Apron Club holds its councils: because the method is not an enterprise secret. It is a <b>community craft</b> — older than any of this. Franklin's circle called it mutual improvement. The shops called it apprenticeship. We call it Friday.</p>
+  <p>Bring one honest question. Bring one task you would love to never do again. The tools will meet you where you already stand — that is the entire discovery, and it is reproducible in any room with a table and enough chairs.</p>
+
+  <footer>
+    <hr class="rule">
+    <p class="fine">A true account as lived and told by the founders, September 2026. Names and figures appear with the participants' knowledge; internal details are intentionally left at the door. Code Puppy is an open-source project by Michael Pfaffenberger — every trail in Spruce Grove is inspired by it, and every value is our own.</p>
+    <p class="motto">&ldquo;Together we are better. Always.&rdquo;</p>
+  </footer>
+</div>
+</body>
+</html>

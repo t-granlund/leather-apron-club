@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bentonville Barber Company — the council's home · Works of the Leather Apron Club</title>
+<link rel="icon" type="image/png" href="assets/spruce_grove_logo_white.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,560&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -20,6 +21,12 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  #grove-grain {
+    position: fixed; inset: 0; z-index: 2000; pointer-events: none; opacity: .05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+    box-shadow: inset 0 0 200px rgba(0,0,0,.5);
+  }
   body {
     margin: 0; color: var(--ink); font-family: var(--garamond);
     font-size: 17.5px; line-height: 1.8; -webkit-font-smoothing: antialiased;
@@ -133,6 +140,7 @@
 </head>
 <body>
 <div class="era-ghost" aria-hidden="true">EST · MMXXVI</div>
+<div id="grove-grain" aria-hidden="true"></div>
 <div class="wrap">
   <a class="back" href="../">&larr; back to the council hall</a>
   <header>

@@ -5,100 +5,201 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bentonville Barber Company — the council's home · Works of the Leather Apron Club</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,560&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #EAE4D3; --ink-dim: #B7B2A0; --ink-faint: #8E8B7C;
-    --bg: #0E130F; --bg-2: #121813; --card: #161D18;
-    --moss: #588F5E; --sage: #98B79E; --cedar: #D2A069;
-    --line: rgba(234,228,211,.18); --line-soft: rgba(234,228,211,.10);
+    --bg: #0B0F0C; --bg-2: #10160F; --card: #131A14;
+    --moss: #588F5E; --sage: #98B79E; --cedar: #D2A069; --cedar-hi: #F2CFA0;
+    --line: rgba(234,228,211,.20); --line-soft: rgba(234,228,211,.09);
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    --fell: "IM Fell English SC", serif;
+    --fell-i: "IM Fell English", serif;
+    --garamond: "EB Garamond", Georgia, serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    margin: 0; background:
-      radial-gradient(ellipse 900px 460px at 50% -6%, rgba(88,143,94,.16), transparent 60%),
+    margin: 0; color: var(--ink); font-family: var(--garamond);
+    font-size: 17.5px; line-height: 1.8; -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(ellipse 1100px 620px at 50% -12%, rgba(88,143,94,.22), transparent 62%),
+      radial-gradient(ellipse 700px 420px at 88% 112%, rgba(210,160,105,.10), transparent 65%),
       var(--bg);
-    color: var(--ink); font-family: "EB Garamond", Georgia, serif;
-    font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased;
   }
   a { color: var(--sage); }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 26px; }
-  .back { display: inline-block; margin: 34px 0 0; font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint); }
-  .back:hover { color: var(--sage); }
-  header { text-align: center; padding: 26px 0 10px; }
-  .rule-double { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); height: 5px; margin: 0 auto; max-width: 420px; }
-  .kicker { font-family: "IM Fell English", serif; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--cedar); margin: 18px 0 4px; }
-  h1 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 2.6rem; margin: 0 0 6px; line-height: 1.1; }
-  .sub { font-style: italic; color: var(--ink-dim); margin: 0 0 16px; }
-  .live-pill {
-    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-    font-family: "IM Fell English", serif; font-size: 14px; color: var(--ink-faint);
-    border: 1px solid var(--line-soft); border-radius: 999px; padding: 6px 18px; margin: 6px 0 18px;
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; position: relative; }
+
+  /* era-ghost: the corner watermark, deck discipline */
+  .era-ghost {
+    position: fixed; top: 18px; right: 26px; z-index: 0; pointer-events: none;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .3em; color: rgba(234,228,211,.22);
   }
-  .live-pill a { color: var(--ink); border-bottom: 1px dotted var(--ink); }
-  section { padding: 30px 0; }
-  h2 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 1.7rem; margin: 0 0 4px; }
-  .h-sub { color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 0 0 20px; }
-  p { color: var(--ink-dim); }
+
+  .back {
+    display: inline-flex; align-items: center; gap: 8px; margin: 44px 0 0;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none;
+  }
+  .back:hover { color: var(--sage); }
+
+  /* hero — the real mark, monumental title, deck cold-open discipline */
+  header { text-align: center; padding: 44px 0 8px; position: relative; z-index: 1; }
+  .mark-hero {
+    display: block; width: 96px; height: auto; margin: 0 auto 6px;
+    filter: drop-shadow(0 10px 34px rgba(88,143,94,.45));
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--cedar); display: inline-flex; align-items: center; gap: 14px; margin: 10px 0 18px;
+  }
+  .kicker::before, .kicker::after { content: ""; width: 38px; height: 1px; background: var(--cedar); opacity: .6; }
+  h1 {
+    font-family: var(--fell); font-weight: 400; margin: 0 0 10px; line-height: 1.04;
+    font-size: clamp(2.7rem, 6.4vw, 4.4rem); letter-spacing: .01em;
+  }
+  h1 .amp { color: var(--cedar); }
+  .sub {
+    font-style: italic; color: var(--ink-dim); margin: 0 auto 26px; max-width: 34em;
+    font-size: 1.12rem;
+  }
+  .live-pill {
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; color: var(--ink-faint);
+    border: 1px solid var(--line-soft); border-radius: 999px; padding: 9px 22px;
+    background: rgba(19,26,20,.7);
+  }
+  .live-pill a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted rgba(234,228,211,.5); padding-bottom: 1px; }
+  .live-pill a:hover { color: var(--cedar-hi); border-color: var(--cedar); }
+  .live-pill .dot { color: var(--cedar); }
+
+  /* section chrome: mono eyebrow + cedar tick, deck ledger discipline */
+  section { padding: 40px 0 8px; position: relative; z-index: 1; }
+  .sec-h {
+    display: flex; align-items: baseline; gap: 16px; margin: 0 0 18px;
+    border-bottom: 1px solid var(--line-soft); padding-bottom: 12px;
+  }
+  .sec-h .idx { font-family: var(--mono); font-size: 12px; color: var(--cedar); letter-spacing: .18em; }
+  h2 { font-family: var(--fell); font-weight: 400; font-size: 1.9rem; margin: 0; line-height: 1.15; }
+  .h-sub { color: var(--ink-faint); font-size: 14px; font-style: italic; margin: 6px 0 0; }
+  p { color: var(--ink-dim); font-size: 1.03rem; }
   p b, li b { color: var(--ink); font-weight: 500; }
-  ol.flow { margin: 0; padding: 0; list-style: none; counter-reset: f; }
-  ol.flow li { counter-increment: f; position: relative; padding: 12px 0 12px 54px; border-bottom: 1px solid var(--line-soft); font-size: 16px; color: var(--ink-dim); }
-  ol.flow li::before { content: counter(f, upper-roman); position: absolute; left: 8px; top: 14px; font-family: "IM Fell English", serif; font-size: 13px; color: var(--cedar); }
-  ol.flow li b { display: block; font-family: "IM Fell English", serif; font-size: 17px; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
-  .note { border-left: 2px solid var(--moss); padding: 4px 0 4px 16px; margin: 20px 0; font-style: italic; color: var(--ink-dim); }
-  footer { border-top: 1px solid var(--line-soft); margin-top: 40px; padding: 30px 0 60px; text-align: center; color: var(--ink-faint); font-size: 14px; }
-  footer .parlor { font-family: "IM Fell English", serif; letter-spacing: .1em; margin-top: 6px; }
+  .lead::first-letter {
+    font-family: var(--fell); color: var(--cedar); float: left;
+    font-size: 3.4em; line-height: .82; padding: 6px 12px 0 0;
+  }
+
+  /* the chairs — typographic ledger, six seats */
+  .chairs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: 10px; overflow: hidden; margin: 24px 0 10px; }
+  .chair { background: var(--bg-2); padding: 18px 20px 16px; }
+  .chair .n { font-family: var(--fell); font-size: 1.22rem; color: var(--ink); line-height: 1.2; }
+  .chair .r { font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); margin-top: 6px; }
+  .chair.first .r { color: var(--cedar); }
+  @media (max-width: 680px) { .chairs { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .chairs { grid-template-columns: 1fr; } }
+
+  /* the spot — strata, deck discipline: two addresses and the hand between */
+  .strata { margin: 24px 0 8px; border: 1px solid var(--line-soft); border-radius: 10px; overflow: hidden; }
+  .stratum { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 16px 20px; background: var(--bg-2); border-bottom: 1px solid var(--line-soft); }
+  .stratum:last-child { border-bottom: 0; }
+  .stratum .tick { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); padding-top: 4px; }
+  .stratum .t { font-family: var(--fell); font-size: 1.08rem; color: var(--ink); }
+  .stratum .d { font-size: 15px; color: var(--ink-dim); margin-top: 2px; }
+  .stratum.hand { background: linear-gradient(90deg, rgba(210,160,105,.10), rgba(88,143,94,.08)); }
+  .stratum.hand .tick { color: var(--cedar); }
+  .stratum.hand .t { color: var(--cedar-hi); }
+
+  /* the patron — ledger entry */
+  .ledger {
+    border-left: 2px solid var(--cedar); background: linear-gradient(90deg, rgba(210,160,105,.06), transparent 70%);
+    padding: 14px 22px; margin: 22px 0 4px; font-size: 1.03rem; color: var(--ink-dim);
+  }
+  .ledger .who { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); margin-top: 12px; }
+  .ledger em.hi { color: var(--cedar-hi); font-style: italic; }
+
+  /* flow — roman numerals, kept */
+  ol.flow { margin: 6px 0 0; padding: 0; list-style: none; counter-reset: f; }
+  ol.flow li { counter-increment: f; position: relative; padding: 14px 0 14px 58px; border-bottom: 1px solid var(--line-soft); font-size: 16.5px; color: var(--ink-dim); }
+  ol.flow li::before { content: counter(f, upper-roman); position: absolute; left: 10px; top: 17px; font-family: var(--fell); font-size: 14px; color: var(--cedar); }
+  ol.flow li b { display: block; font-family: var(--fell); font-size: 17.5px; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
+
+  .note { border-left: 2px solid var(--moss); padding: 6px 0 6px 20px; margin: 26px 0 8px; font-style: italic; color: var(--ink-dim); font-size: 1.04rem; }
+
+  footer { border-top: 1px solid var(--line-soft); margin-top: 48px; padding: 34px 0 64px; text-align: center; color: var(--ink-faint); font-size: 14px; position: relative; z-index: 1; }
+  footer .parlor { font-family: var(--fell-i); letter-spacing: .1em; margin-top: 6px; }
   footer .parlor b { color: var(--sage); font-weight: 400; }
-  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
+<div class="era-ghost" aria-hidden="true">EST · MMXXVI</div>
 <div class="wrap">
   <a class="back" href="../">&larr; back to the council hall</a>
   <header>
-    <div class="rule-double"></div>
-    <div class="kicker">Works of the council &middot; the homecoming</div>
-    <h1>Bentonville Barber Company</h1>
-    <p class="sub">the shop that exists because a neighbor had a key &mdash; the thesis, with chairs</p>
+    <img class="mark-hero" src="assets/spruce_grove_logo_white.png" alt="" width="96" height="96">
+    <div class="kicker">works of the council &middot; the homecoming</div>
+    <h1>Bentonville <span class="amp">Barber</span> Company</h1>
+    <p class="sub">the shop that exists because a neighbor had a key &mdash; the thesis, with chairs.</p>
     <span class="live-pill">
       <a href="https://www.bentonvillebarbercompany.com" target="_blank" rel="noopener">bentonvillebarbercompany.com</a>
-      &middot;
+      <span class="dot">&middot;</span>
       <a href="https://book.squareup.com/appointments/9satyflw7ax0n7/location/LHWM21XKXHJQ2/services" target="_blank" rel="noopener">book a chair</a>
+      <span class="dot">&middot;</span>
+      <a href="https://www.instagram.com/bentonvillebarbercompany" target="_blank" rel="noopener">@bentonvillebarbercompany</a>
     </span>
-    <div class="rule-double"></div>
   </header>
 
   <section>
-    <h2>The Shop, and How It Came to Be</h2>
-    <p><b>Victor Rubio</b>, with his family behind him, opened Bentonville Barber Company after leaving a shop whose owner didn't keep the morals the trade deserves. <b>Drew Garrison</b> and <b>Daniel Devault</b> came with him &mdash; the originals. <b>Ernie Herrera</b>, <b>John Hill</b>, and <b>Jonny Williams</b> fill out the chairs: good dudes, every one.</p>
-    <p>That is how the best shops are founded &mdash; not on a business plan, but on a line a tradesman will not cross, and the people who cross the street to stand with him.</p>
+    <div class="sec-h"><span class="idx">I</span><h2>The shop, and how it came to be</h2></div>
+    <p class="lead"><b>Victor Rubio</b>, with his family behind him, opened Bentonville Barber Company after leaving a shop whose owner didn't keep the morals the trade deserves. That is how the best shops are founded &mdash; not on a business plan, but on a line a tradesman will not cross, and the people who cross the street to stand with him.</p>
+    <div class="chairs">
+      <div class="chair first"><div class="n">Victor Rubio</div><div class="r">founder &middot; the line he would not cross</div></div>
+      <div class="chair first"><div class="n">Drew Garrison</div><div class="r">the originals</div></div>
+      <div class="chair first"><div class="n">Daniel Devault</div><div class="r">the originals</div></div>
+      <div class="chair"><div class="n">Ernie Herrera</div><div class="r">the chairs</div></div>
+      <div class="chair"><div class="n">John Hill</div><div class="r">the chairs</div></div>
+      <div class="chair"><div class="n">Jonny Williams</div><div class="r">the chairs</div></div>
+    </div>
+    <p style="font-size:15.5px; color:var(--ink-faint); font-style:italic;">Good dudes, every one. The shop runs on craft, not on a website it has to babysit &mdash; bookings on Square, walk-ins at the door.</p>
   </section>
 
   <section>
-    <h2>The Spot</h2>
-    <p>The old room sat in a plaza by Daylight Donuts, across from the Sam's Club home office (2308 SE 28th St). The landlord raised the rent. And then the thing this whole club is built on happened: <b>a customer had a spot open</b> &mdash; 113 W Central Ave, Suite 201, on the square in downtown Bentonville &mdash; and handed it over.</p>
-    <p>Helping each other. Not a slogan. A floor plan.</p>
+    <div class="sec-h"><span class="idx">II</span><h2>The spot</h2></div>
+    <div class="strata">
+      <div class="stratum">
+        <span class="tick">was</span>
+        <div><div class="t">2308 SE 28th St &mdash; the plaza by Daylight Donuts</div>
+        <div class="d">across from the Sam's Club home office. The landlord raised the rent.</div></div>
+      </div>
+      <div class="stratum hand">
+        <span class="tick">then</span>
+        <div><div class="t">a customer had a spot open &mdash; and handed it over</div>
+        <div class="d">the thing this whole club is built on, done first by a neighbor with keys.</div></div>
+      </div>
+      <div class="stratum">
+        <span class="tick">now</span>
+        <div><div class="t">113 W Central Ave, Suite 201 &mdash; on the square, downtown</div>
+        <div class="d">Helping each other. Not a slogan. A floor plan.</div></div>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>The Patron</h2>
-    <p>From the club's ledger: Tyler Granlund has been in Drew's chair since 2020 &mdash; first at Uptown Barber Company's downtown Bentonville spot, then following the shop to Centerton, where Drew Garrison worked. He loved their ethos enough to film a <b>onewheel edit of the ride from his house to the shop</b>; it lives in the Centerton shop's Instagram archives. Drew has been his dude since he moved here. When Victor opened the new shop, Drew came, and Tyler followed.</p>
+    <div class="sec-h"><span class="idx">III</span><h2>The patron</h2></div>
+    <div class="ledger">
+      <p style="margin:0">In Drew's chair since 2020 &mdash; first at Uptown Barber Company's downtown Bentonville spot, then following the shop to Centerton, where Drew Garrison worked. He loved their ethos enough to film <em class="hi">a onewheel edit of the ride from his house to the shop</em>; it lives in the Centerton shop's Instagram archives. When Victor opened the new shop, Drew came, and Tyler followed.</p>
+      <div class="who">from the club's ledger &middot; Drew has been his dude since he moved here</div>
+    </div>
   </section>
 
   <section>
-    <h2>What the Grove Does Here</h2>
+    <div class="sec-h"><span class="idx">IV</span><h2>What the grove does here</h2></div>
     <p class="h-sub">the club convenes where the thesis already worked</p>
     <ol class="flow">
-      <li><b>The chairs take the trade.</b> Bookings run on Square; walk-ins at the door. The shop runs on craft, not on a website it has to babysit.</li>
-      <li><b>The help already crossed the counter.</b> A barber passed a business owner an IT contact &mdash; recorded in the club's receipts, before the club had a name.</li>
+      <li><b>The help already crossed the counter.</b> A barber passed a business owner an IT contact &mdash; recorded in the receipts before the club had a name.</li>
       <li><b>The first council convenes in the chairs.</b> Friday, September 18, 2026 &mdash; in the spot a neighbor gave, to show the room what the machine can do: speak, and it builds.</li>
       <li><b>The shopfront ships with the shop.</b> Mock-up in hand &mdash; they own it, the club maintains. The next surface for the square is theirs to approve.</li>
     </ol>
-  </section>
-
-  <section>
-    <h2>Why It Holds</h2>
     <div class="note">A shop born of a landlord's greed and a neighbor's kindness now hosts a circle founded on the same math. Every party's perspective was in the room before any build: the owners' pride and their books, the customers' thumbs, the town's habits. Convey them all and the smallest thing holds like a well-set chair.</div>
   </section>
 

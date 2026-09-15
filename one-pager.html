@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Leather Apron Club — one-pager (print)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* letter-size print sheet — prints clean on one page, white paper */
+    * { box-sizing: border-box; margin: 0; }
+    :root { --ink:#1a2018; --dim:#4a554b; --faint:#7a857c; --ember:#a8683a; --moss:#2d4f3a; --line:#c9c5b8; }
+    body { font-family: "EB Garamond", Georgia, serif; color: var(--ink); background: #e8e4da; }
+    .sheet { width: 8.5in; min-height: 11in; margin: 24px auto; background: #fffdf8;
+      padding: 0.55in 0.65in; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,.18); }
+    .rule-top { border-top: 3px double var(--ember); padding-top: 10px; }
+    .mast { display: flex; justify-content: space-between; align-items: baseline; }
+    .wordmark { font-family: "IM Fell English SC", serif; font-size: 22px; color: var(--ink); }
+    .wordmark span { color: var(--ember); }
+    .est { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); }
+    h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.1; margin: 22px 0 6px; }
+    h1 em { font-style: italic; color: var(--ember); }
+    .lede { font-size: 15.5px; line-height: 1.55; color: var(--dim); max-width: 44em; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 18px; }
+    .col h2 { font-family: "IM Fell English SC", serif; font-weight: 400; font-size: 15px;
+      border-top: 2px solid var(--moss); padding-top: 8px; margin: 0 0 8px; }
+    .col p, .col li { font-size: 12.5px; line-height: 1.55; color: var(--dim); }
+    .col ul, .col ol { padding-left: 18px; }
+    .col li { margin: 4px 0; }
+    .col li b { color: var(--ink); }
+    .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 16px 0;
+      border: 1px solid var(--line); background: #f6f2e8; }
+    .strip .p { padding: 10px 12px; text-align: center; border-right: 1px solid var(--line); }
+    .strip .p:last-child { border-right: 0; }
+    .strip .n { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 21px; color: var(--ember); display: block; }
+    .strip .w { font-family: "JetBrains Mono", monospace; font-size: 7.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+    .ask { border: 1.5px solid var(--ember); background: #faf5ec; padding: 14px 18px; margin-top: 16px;
+      display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: center; }
+    .ask h2 { border: 0; padding: 0; margin: 0; font-size: 17px; grid-column: 1 / -1; }
+    .ask p { font-size: 12.5px; line-height: 1.5; color: var(--dim); margin: 0; }
+    .ask .when { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink); text-align: right; line-height: 1.7; }
+    .ask .when b { color: var(--ember); }
+    .foot { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 8px;
+      display: flex; justify-content: space-between;
+      font-family: "JetBrains Mono", monospace; font-size: 8.5px; color: var(--faint); letter-spacing: .08em; }
+    .foot a { color: var(--moss); text-decoration: none; }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; box-shadow: none; width: auto; min-height: auto; }
+      .no-print { display: none; }
+    }
+    .no-print { max-width: 8.5in; margin: 18px auto 0; font-family: "JetBrains Mono", monospace;
+      font-size: 11px; color: #555; text-align: center; }
+  </style>
+</head>
+<body>
+  <p class="no-print">print: Cmd+P &middot; letter &middot; margins default &middot; it fits one page</p>
+  <div class="sheet">
+    <div class="rule-top">
+      <div class="mast">
+        <span class="wordmark">The Leather Apron Club<span>.</span></span>
+        <span class="est">est. 1727 · philadelphia — rebooted · bentonville</span>
+      </div>
+      <h1>Own the tools your business <em>runs on.</em></h1>
+      <p class="lede">A council of trades — barbers, builders, pilots, printers — and a free,
+      open-source machine that builds software the way a good apprentice works: you describe the
+      job out loud, it thinks in the open, and a human approves every serious step. We build for
+      our neighbors, in public, and hand over the keys.</p>
+    </div>
+
+    <div class="strip">
+      <div class="p"><span class="n">2</span><span class="w">shops' tools built in public</span></div>
+      <div class="p"><span class="n">30–90</span><span class="w">days, friction to self-sustaining</span></div>
+      <div class="p"><span class="n">75,000+</span><span class="w">people work this method</span></div>
+      <div class="p"><span class="n">$0</span><span class="w">license — your keys, no seat rent</span></div>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <h2>What that looks like</h2>
+        <ul>
+          <li><b>A drone outfit's lead pipeline</b> — the brief was a spoken voice note; the
+          brand was studied before a line was written; tested like a customer, then verified
+          live: form → routing → dashboard.</li>
+          <li><b>A barbershop's shopfront</b> — the shop owns it, the club maintains it. Built
+          where the club meets: Bentonville Barber Company, 113 W Central.</li>
+          <li><b>The method behind it</b> — honest requirements, the machine doing the heavy
+          lifting, humans gating what matters — taught inside one of the largest companies on
+          earth, from ten people to seventy-five thousand.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>What it is, and isn't</h2>
+        <ul>
+          <li><b>Is:</b> your tools, owned by you; built in the open with receipts; a standing
+          council that answers for the work in person.</li>
+          <li><b>Isn't:</b> a subscription, a retainer, a pitch, or a black box. The machine is
+          free (Apache-2.0); it runs on your accounts and keys.</li>
+          <li><b>Prices struck:</b> complexity (bring what you know), cost (own, don't rent),
+          indifference (a name at a table of twelve, not a ticket number).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ask">
+      <h2>Bring your friction to the table</h2>
+      <p>One task you would love to never do again — say it plainly. The council hears it, the
+      machine builds it, you leave with the work done and the trick of it learned. First-time
+      guests need nothing but the task and an evening.</p>
+      <p class="when"><b>FIRST COUNCIL — FRIDAY, SEPTEMBER 25 · 6PM</b><br/>
+      Bentonville Barber Company · 113 W Central Ave, Suite 201<br/>
+      invitations for the 25th go out September 18</p>
+    </div>
+
+    <div class="foot">
+      <span>works of the council: t-granlund.github.io/leather-apron-club</span>
+      <span>every profit ledgered publicly → donated to 43 Institute (43i.org)</span>
+      <span>free · apache-2.0 · cc by 4.0</span>
+    </div>
+  </div>
+</body>
+</html>

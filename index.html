@@ -75,7 +75,7 @@
     position: relative;
   }
   .notice .stamp {
-    position: absolute; top: 18px; right: 16px; transform: rotate(-3deg);
+    position: static; display: inline-block; margin-bottom: 14px; transform: rotate(-2deg);
     font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase;
     color: var(--cedar); border: 2px solid currentColor; outline: 1px solid rgba(210,160,105,.4); outline-offset: 3px;
     padding: 6px 10px; border-radius: 2px; opacity: .9;
@@ -207,11 +207,13 @@
   <!-- first council -->
   <section>
     <div class="notice">
-      <div class="stamp" aria-hidden="true">first council &middot; fri xviii sep</div>
-      <div class="n-kicker">Notice is hereby given</div>
-      <p class="date">The First Council convenes<br />Friday next, the Eighteenth of September, 2026</p>
-      <p class="where">at six of the clock in the evening &middot; Northwest Arkansas &middot; the table to be named upon petition</p>
-      <span class="days" id="countdown">the council convenes soon</span>
+      <div class="stamp" aria-hidden="true">establishment &middot; fri xviii sep</div>
+      <div class="n-kicker">Notice is hereby given, in two parts</div>
+      <p class="date">The Establishment convenes<br />Friday next, the Eighteenth of September, 2026</p>
+      <p class="where">founding core &middot; the charter signed &middot; invitations out that same night</p>
+      <p class="date" style="margin-top:18px">The First Council convenes<br />Friday next, the Five-and-Twentieth of September, 2026</p>
+      <p class="where">ten to fifteen at the table &middot; six of the clock in the evening &middot; Bentonville Barber Company</p>
+      <span class="days" id="countdown">the first council convenes soon</span>
     </div>
   </section>
 
@@ -317,6 +319,32 @@
   <hr class="rule" />
 
   <!-- petition -->
+  <section id="the-myth">
+    <h2>The Myth of the Cog</h2>
+    <p class="h-sub">the parable the club carries &mdash; from <a href="https://www.paramountmovies.com/movies/transformers-one" style="color:var(--sage)">Transformers One</a> (2024)</p>
+    <div class="card" style="text-align:left">
+      <p style="margin:0 0 12px">In that origin, the miners of Cybertron were born <b>without their
+      transformation cogs</b> &mdash; taken before they ever came online. They mined Energon in the
+      dark for a leader who told everyone the story they wanted to hear, because he had the
+      power to tell it. Sentinel Prime's narrative held for cycles, because no one below could
+      see past it.</p>
+      <p style="margin:0 0 12px">Then the truth: the cogs were stolen. The power was taken back.
+      And Orion Pax &mdash; a miner, a nobody by every ledger the towers kept &mdash; was handed
+      the legacy of the fallen Primes and rose as <b>Optimus Prime</b>.</p>
+      <p style="margin:0 0 12px">But the film's real secret is the one the title hides:
+      <b>it was never the cog.</b> The cog only revealed what was already there &mdash; the spark
+      within them, the same spark in every miner still standing in the dark.</p>
+      <p style="margin:0;color:var(--sage)"><b>That is this club, exactly.</b> The machine is our
+      cog &mdash; given freely, so no one is born without one again. Sentinel's story is still
+      being told today, by whatever power prefers the dark. And the spark &mdash; the thing that
+      does the right thing for everyone &mdash; was yours before you ever read this page. As
+      the machine-men with machine minds would have it otherwise, and as a certain
+      barber's-chair philosopher keeps proving: the spark leads.</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
   <section id="petition">
     <h2>Petition for Admission</h2>
     <p class="h-sub">tell the council why you would sit with it &mdash; your words go by post, unaltered</p>
@@ -355,12 +383,12 @@
   /* countdown to the first council */
   (function () {
     var el = document.getElementById("countdown");
-    var meet = new Date("2026-09-18T18:00:00-05:00");
+    var meet = new Date("2026-09-25T18:00:00-05:00");
     var days = Math.ceil((meet - Date.now()) / 86400000);
     if (days > 1) { el.textContent = "the council convenes in " + days + " days"; }
     else if (days === 1) { el.textContent = "the council convenes tomorrow"; }
     else if (days === 0) { el.textContent = "the council convenes this evening"; }
-    else { el.textContent = "the first council has convened"; }
+    else { el.textContent = "the first council has convened \u2014 the next table is forming"; }
   })();
 
   /* the petition: composed as a letter, sent by the member's own hand */

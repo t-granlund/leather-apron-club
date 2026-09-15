@@ -25,8 +25,10 @@ jobs:
       - name: stage site
         run: |
           mkdir -p _site
-          cp index.html guide.html _site/
-          cp -r works _site/works
+          # every page, present and future — new surfaces must never 404
+          # because someone forgot to add a filename here
+          cp *.html _site/
+          cp -r works docs _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

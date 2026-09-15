@@ -45,6 +45,12 @@
       display: flex; justify-content: space-between;
       font-family: "JetBrains Mono", monospace; font-size: 8.5px; color: var(--faint); letter-spacing: .08em; }
     .foot a { color: var(--moss); text-decoration: none; }
+    .qr-row { display: flex; align-items: center; gap: 14px; justify-content: center;
+      margin: 14px 0 4px; }
+    .qr-row img { width: 84px; height: 84px; image-rendering: pixelated; }
+    .qr-row span { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #333;
+      letter-spacing: .08em; text-transform: uppercase; max-width: 3in; }
+
     @media print {
       body { background: #fff; }
       .sheet { margin: 0; box-shadow: none; width: auto; min-height: auto; }
@@ -111,6 +117,11 @@
       <p class="when"><b>FIRST COUNCIL — FRIDAY, SEPTEMBER 25 · 6PM</b><br/>
       Bentonville Barber Company · 113 W Central Ave, Suite 201<br/>
       invitations for the 25th go out September 18</p>
+    </div>
+
+    <div class="qr-row">
+      <img src="works/assets/invite-qr.png" alt="Scan to read about the club and petition for admission" />
+      <span>scan &mdash; the club, the receipts, and your petition</span>
     </div>
 
     <div class="foot">
